@@ -1,0 +1,28 @@
+name: .Net Build, Tests and Publish NuGet Package
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./FG.Csv.Helper
+    - name: Build
+      run: dotnet build --configuration Release --no-restore ./FG.Csv.Helper
+    - name: Tests
+      run: dotnet test --configuration Release --no-build --verbosity normal ./FG.Csv.Helper
+    - name: Create the package
+      run: dotnet pack --configuration Release ./FG.Csv.Helper --include-symbols
+    - name: Publish the package
+      run: dotnet nuget push ./FG.Csv.Helper/bin/Release/*.nupkg -k ${{secrets.NUGETAPIKEY}} -s https://api.nuget.org/v3/index.json
