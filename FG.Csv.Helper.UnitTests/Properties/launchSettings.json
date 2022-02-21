@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FG.Csv.Helper.UnitTests": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
