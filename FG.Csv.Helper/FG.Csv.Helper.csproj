@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageId>Csv.Helper</PackageId>
+    <PackageId>FG.Csv.Helper</PackageId>
     <Authors>Florian Goldschmitt</Authors>
-    <Product>Csv.Helper</Product>
+    <Product>FG.Csv.Helper</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/FlGoldschmitt/Csv.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlGoldschmitt/Csv.Helper</RepositoryUrl>
