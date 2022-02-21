@@ -8,17 +8,17 @@ It's a basic implementation that allows these different actions to be carried ou
 ### Package Manager
 
 ```
-    Install-Package Csv.Helper -Version 1.0.0
+    Install-Package FG.Csv.Helper -Version 1.0.0
 ```
 ### .NET CLI
 
 ```
-    dotnet add package Csv.Helper --version 1.0.0
+    dotnet add package FG.Csv.Helper --version 1.0.0
 ```
 ### PackageReference
 
 ```
-    <PackageReference Include="Csv.Helper" Version="1.0.0" />
+    <PackageReference Include="FG.Csv.Helper" Version="1.0.0" />
 ```
 
 ## How to use
