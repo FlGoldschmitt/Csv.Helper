@@ -1,15 +1,12 @@
-name: .Net Build, Tests and Publish NuGet Package
+name: .Net Restore, Build, Tests and Publish NuGet Package
 
 on:
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-tests:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -22,6 +19,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore ./FG.Csv.Helper
     - name: Tests
       run: dotnet test --configuration Release --no-build --verbosity normal ./FG.Csv.Helper
+      
+  manage-nuget-package:
+    needs: build-and-tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
     - name: Create the package
       run: dotnet pack --configuration Release ./FG.Csv.Helper --include-symbols
     - name: Publish the package
